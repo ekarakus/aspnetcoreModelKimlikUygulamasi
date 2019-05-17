@@ -1,0 +1,17 @@
+﻿@model List<Kimlik>
+    
+    <a asp-action="Index" >Yeni Kimlik Ekleme</a>
+    <h1>Listedeki Kimlikler</h1>
+        @foreach (var kimlik in Model)
+        {
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-3">@kimlik.TCKN</div>
+                    <div class="col-sm-2">@kimlik.ad</div>
+                    <div class="col-sm-2">@kimlik.soyad</div>
+                    <div class="col-sm-2">@kimlik.anaAdi</div>
+                    <div class="col-sm-3">@kimlik.babaAdi</div>
+                </div>
+            </div>
+            
+        }

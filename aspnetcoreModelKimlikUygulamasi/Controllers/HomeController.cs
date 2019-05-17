@@ -10,9 +10,28 @@ namespace aspnetcoreModelKimlikUygulamasi.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Index(Kimlik kimlik)
+        {
+            if (ModelState.IsValid)
+            {
+                Depo.KimlikEkle(kimlik);
+                return RedirectToAction("Kimlikler");
+            }
+            else
+            {
+                return View();
+            }
+            
+        }
+        public IActionResult Kimlikler()
+        {
+            return View(Depo.kimlikler);
         }
 
         public IActionResult About()
